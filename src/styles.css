@@ -1,0 +1,80 @@
+@font-face {
+  font-family: "Nanito";
+  src: url("../src/assets/fonts/nunitoSans.ttf");
+  font-weight: 300 600 800;
+}
+
+:root {
+  --dark-blue: hsl(209,23%,22%);
+  --very-dark-blue: hsl(0,0%,100%);
+  --ligh-mode-font: hsl(200,15%,8%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --very-ligth-gray: hsl(0,0%,98%);
+  --white-base: hsl(0,0%,100%)
+}
+
+@layer reset {
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+  html,body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Nanito Sans", sans-serif;
+    line-height: 1.5;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: inherit
+  }
+
+  ul, ol {
+    list-style: none;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  button, input {
+    border: none;
+    outline:none;
+    background: none;
+  }
+}
+
+@layer base {
+  h1,h2 {
+    color: var(--heading-foreground-color,var(--ligh-mode-font));
+    font-size: var(--heading-font-size, 1rem);
+  }
+
+  p {
+    color: var(--text-foreground-color, var(--very-dark-blue));
+  }
+
+  span {
+    color: var(--span-foreground-color, var(--dark-gray));
+  }
+
+  input {
+    border: 1px solid black;
+  }
+
+  input::placeholder {
+
+  } 
+
+
+  p {
+    color: var();
+  }
+}
+
