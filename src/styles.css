@@ -43,7 +43,7 @@
     font: inherit;
   }
 
-  button, input {
+  button, input, select{
     border: none;
     outline:none;
     background: none;
@@ -57,7 +57,7 @@
   }
 
   p {
-    color: var(--text-foreground-color, var(--very-dark-blue));
+    color: var(--text-foreground-color, var(--ligh-mode-font));
   }
 
   span {
@@ -65,11 +65,17 @@
   }
 
   input {
-    border: 1px solid black;
+    padding: .8rem;
+    color: var(--input-text-foreground, var(--dark-blue));
+  }
+  
+  ion-icon {
+    font-size: 14px;
+    color: var(--icon-foreground-color,var(--dark-gray));
   }
 
   input::placeholder {
-
+    color: var(--input-placeholder-foreground, var(--dark-gray));
   } 
 
 
@@ -78,3 +84,64 @@
   }
 }
 
+@layer layout {
+  .main_container {
+    .top_section_container {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem;
+      -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+      -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+      box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+      button {
+        display: flex;
+        align-items: center;
+        ion-icon {
+          margin-inline-end: .5rem;
+        }
+      } 
+    }
+    .search_filter_container {
+     margin-block-start: 2rem; 
+      .search_container {
+        display: flex;
+        align-items: center;
+        width: 95%;
+        max-width: 450px;
+        margin: 0 auto;
+        margin-block-end: 1rem;
+        padding-inline: 1rem;
+        -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+        -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+        box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+      }
+
+      .filter_container {
+        select {
+          width: 200px;
+          padding: 1rem;
+          box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+          -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+          -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+        }
+      }
+    }
+
+    .country_cards_container {
+      display: grid;
+      grid-template-columns: repeat(1fr, auto-fill);
+      justify-items: center;
+      margin-block-start: 1rem;
+      .country_card_container {
+        width: 90%;
+        max-width: 420px;
+        -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+        -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+        box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+      }
+      .card_info {
+        padding: 1rem;
+      }
+    }
+  }
+}
