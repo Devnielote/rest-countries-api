@@ -2,7 +2,6 @@ export function renderCards(data) {
   
   const container = document.getElementById("cards-container");
   container.innerHTML = "";
-  console.log("Data recibida en cards", data)
 
   data.forEach((country) => {
     const card = document.createElement("div");
