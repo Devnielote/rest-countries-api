@@ -6,7 +6,7 @@
 
 :root {
   --dark-blue: hsl(209,23%,22%);
-  --very-dark-blue: hsl(0,0%,100%);
+  --very-dark-blue: hsl(207,26%,17%);
   --ligh-mode-font: hsl(200,15%,8%);
   --dark-gray: hsl(0, 0%, 52%);
   --very-ligth-gray: hsl(0,0%,98%);
@@ -52,11 +52,13 @@
 
 @layer base {
   h1,h2 {
+    font-family: Nanito;
     color: var(--heading-foreground-color,var(--ligh-mode-font));
     font-size: var(--heading-font-size, 1rem);
   }
 
   p {
+    font-family: Nanito;
     color: var(--text-foreground-color, var(--ligh-mode-font));
   }
 
@@ -89,7 +91,8 @@
     .top_section_container {
       display: flex;
       justify-content: space-between;
-      padding: 2rem;
+      padding-block: 2rem;
+      padding-inline: 1rem;
       -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
       -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
       box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
@@ -108,6 +111,7 @@
         display: flex;
         align-items: center;
         width: 100%;
+        height: 50px;
         max-width: 450px;
         margin: 0 auto;
         margin-block-end: 1rem;
@@ -115,20 +119,32 @@
         -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
         -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
         box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+        border-radius: 5px;
+
+        ion-icon {
+          font-size: 20px;
+        }
 
         input {
           width: 100%;
+          font-family: Nanito;
+          font-size: .89rem;
+          font-weight: 300;
         }
       }
 
       .filter_container {
         margin-block-start: 3rem;
         select {
-          width: 200px;
+          width: 220px;
           padding: 1rem;
+          font-size: .89rem;
+          font-family: Nanito;
+          font-weight: 300;
           box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
           -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
           -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+          border-radius: 5px;
         }
       }
     }
@@ -145,6 +161,7 @@
       .country_card_container {
         width: 90%;
         max-width: 320px;
+        padding-block-end: 2rem;
         margin-block-start: 2rem;
         -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
         -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
@@ -161,19 +178,93 @@
       .card_info {
         display: flex;
         flex-direction: column;
-        padding: 2rem;
+        padding-inline: 1.5rem;
+        padding-block-start: 1.5rem;
+        line-height: 1.9rem;
 
         h2 {
-          margin-block-end: 1rem;
-        }
-
-        p {
-          font-weight: 600;
+          margin-block-end: .8rem;
+          font-size: 1.2rem;
+          font-weight: 800;
         }
 
         span {
-          font-weight: 400;
+          font-weight: 300;
         }
+      }
+    }
+  }
+}
+
+
+@layer media {
+
+  @media (width > 42rem) {
+    .search_filter_container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: 3rem;
+      .search_container {
+        margin: 0;
+      }
+
+      .filter_container {
+        margin: 0;
+      }
+    }
+  }
+
+}
+
+
+@layer dark-mode {
+  @media (prefers-color-scheme: dark) {
+    h1,h2 {
+      --heading-foreground-color: var(--white-base); 
+    }
+
+    p {
+      font-weight: 600;
+      --text-foreground-color: var(--white-base); 
+    }
+    
+    input,input::placeholder, select, option {
+      color: var(--white-base);
+      background-color: var(--dark-blue);
+    }
+
+    span {
+      color: var(--white-base);
+      font-weight: 300;
+    }
+
+    button {
+      font-size: .89rem;
+      font-weight: 300;
+      color: var(--white-base);
+      ion-icon {
+        color: var(--white-base);
+      }
+    }
+
+    .main_container {
+      background-color: var(--very-dark-blue);
+      .top_section_container {
+        background-color: var(--dark-blue);
+      }
+
+      .search_filter_container {
+        .search_container {
+          background-color: var(--dark-blue);
+          ion-icon {
+            color: var(--white-base);
+          }
+        }
+      }
+
+      .country_card_container {
+        background-color: var(--dark-blue);
       }
     }
   }
