@@ -41,21 +41,46 @@ export function renderCards(data) {
 }
 
 export function renderCardInfo(data) {
+
+  const {
+    name:{common, nativeName},
+    capital,
+    flags,
+    population,
+    region,
+    subregion,
+    tld,
+    currencies,
+    languages,
+    borders,
+  } = data;
+
+  const nativeCountryName = Object.values(nativeName)[0].common;
+  const countryCurrencyName = Object.values(currencies)[0].name;
+  const countryLanguage = Object.values(languages)[0];
+  const formattedPopulation = population.toLocaleString(); 
+
+
   const cleanContainer = document.getElementById("cards-container");
   cleanContainer.innerHTML = "";
   const container = document.getElementById("single-country-container");
 
   //Card structure
   const card = document.createElement("div");
-  const img = document.createElement("img");
+  card.classList.add("single_country_card");
 
     //Main card containers
   const cardImg = document.createElement("img");
   const cardInfo = document.createElement("section");
+  cardInfo.classList.add("card_info_container")
   const cardInfoGeneral = document.createElement("div")
+  cardInfoGeneral.classList.add("card_info")
   const cardInfoFirstColumn = document.createElement("div");
+  cardInfoFirstColumn.classList.add("info_first_column")
   const cardInfoSecondColumn = document.createElement("div");
+  cardInfoSecondColumn.classList.add("info_second_column")
   const cardInfoBorders = document.createElement("footer");
+  cardInfoBorders.classList.add("borders_container");
 
   //Card content containers
   const cardTitle = document.createElement("h2");
@@ -83,30 +108,31 @@ export function renderCardInfo(data) {
   //Card border content containers
   const cardBordersContainer = document.createElement("div");
   const borderContainerTitle = document.createElement("h2");
-  const borders = data.borders;
+  const countryBorders = borders;
 
   //Card info render first column
-  cardImg.src = data.flags.svg;
-  cardTitle.innerText = data.name.common;
+  cardImg.src = flags.png; 
+  cardImg.alt = flags.alt;
+  cardTitle.innerText = common;
 
-  cardName.innerText = "Native Name:";
-  cardNameSpan.innerText = data.name.nativeName.eng;
+  cardName.innerText = "Native Name: ";
+  cardNameSpan.innerText = nativeCountryName;
   cardName.append(cardNameSpan);
 
-  cardPopulation.innerText = "Population:";
-  cardPopulationSpan.innerText = data.population;
+  cardPopulation.innerText = "Population: ";
+  cardPopulationSpan.innerText = formattedPopulation;
   cardPopulation.append(cardPopulationSpan);
 
-  cardRegion.innerText = "Region:";
-  cardRegionSpan.innerText = data.region
+  cardRegion.innerText = "Region: ";
+  cardRegionSpan.innerText = region;
   cardRegion.append(cardRegionSpan);
 
-  cardSubregion.innerText = "Sub Region:";
-  cardSubregionSpan.innerText = data.subregion;
+  cardSubregion.innerText = "Sub Region: ";
+  cardSubregionSpan.innerText = subregion;
   cardSubregion.append(cardSubregionSpan);
 
-  cardCapital.innerText = "Capital:";
-  cardCapitalSpan.innerText = data.capital;
+  cardCapital.innerText = "Capital: ";
+  cardCapitalSpan.innerText = capital;
   cardCapital.append(cardCapitalSpan);
 
   cardInfoFirstColumn.append(cardName, cardPopulation, cardRegion, cardSubregion, cardCapital);
@@ -115,16 +141,16 @@ export function renderCardInfo(data) {
 
   //Card info render second column
 
-  cardDomain.innerText = "Top Level Domain:";
-  cardDomainSpan.innerText = data.tld;
+  cardDomain.innerText = "Top Level Domain: ";
+  cardDomainSpan.innerText = tld;
   cardDomain.append(cardDomainSpan);
 
-  cardCurrencies.innerText = "Currencies:";
-  cardCurenciesSpan.innerText = data.currencies;
+  cardCurrencies.innerText = "Currencies: ";
+  cardCurenciesSpan.innerText = countryCurrencyName;
   cardCurrencies.append(cardCurenciesSpan);
 
-  cardLang.innerText = "Languages:";
-  cardLangSpan.innerText = data.languages;
+  cardLang.innerText = "Languages: ";
+  cardLangSpan.innerText = countryLanguage;
   cardLang.append(cardLangSpan);
 
   cardInfoSecondColumn.append(cardDomain, cardCurrencies, cardLang);
@@ -132,18 +158,18 @@ export function renderCardInfo(data) {
   
 
   //Card info border render
-  borders.forEach((border) => {
-    const borderNameContainer = document.createElement("div");
-    borderNameContainer.innerText = border;
-    cardBordersContainer.append(borderNameContainer);
+  countryBorders.forEach((border) => {
+    const borderNameBtn = document.createElement("button");
+    borderNameBtn.innerText = border;
+    cardBordersContainer.append(borderNameBtn);
   })
 
-  borderContainerTitle.innerText = "Border Countries:";
+  borderContainerTitle.innerText = "Border Countries: ";
   cardInfoBorders.append(borderContainerTitle, cardBordersContainer);
   
   //Card setup
   cardInfo.append(cardTitle,cardInfoGeneral, cardInfoBorders);
-  card.append(img,cardInfo);
+  card.append(cardImg,cardInfo);
 
   container.append(card);
 }
