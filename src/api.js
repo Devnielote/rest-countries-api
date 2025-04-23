@@ -9,7 +9,6 @@ export async function fetchAllCards(){
     }
 
     const data = await res.json();
-    console.log(data);
     return data;
 
   } catch(error) {
@@ -18,21 +17,19 @@ export async function fetchAllCards(){
     const res = await fetch(FALLBACKURL);
     const data = await res.json();
     return data;
-  }
+  } 
 };
 
 export async function fetchCardByName(str) {
   try {
     str = str.toLowerCase();
     const res = await fetch(URL + "name/" + str);
-    console.log(res);
 
     if (!res.ok) {
       throw new Error("Error con la solicitud de búsqueda")
     }
 
     const data = await res.json();
-    console.log(data[0]);
     return data[0];
 
   } catch(error) {
