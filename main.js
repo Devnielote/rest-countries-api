@@ -9,7 +9,7 @@ async function main() {
     console.error("Mistakes were made in main:", error);
   }
 
-  const data = await fetchCardByName("Mexico")
+  const data = await fetchCardByName("mexico")
   renderCardInfo(data);
 }
 
