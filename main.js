@@ -1,5 +1,5 @@
-import { fetchAllCards } from "./src/api.js";
-import { renderCards } from "./src/components/cards.js";
+import { fetchAllCards, fetchCardByName } from "./src/api.js";
+import { renderCards, renderCardInfo } from "./src/components/cards.js";
 
 async function main() {
   try {
@@ -8,6 +8,9 @@ async function main() {
   } catch(error) {
     console.error("Mistakes were made in main:", error);
   }
+
+  const data = await fetchCardByName("Mexico")
+  renderCardInfo(data);
 }
 
 main();
