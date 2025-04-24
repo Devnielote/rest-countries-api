@@ -160,6 +160,7 @@ export function renderCardInfo(data) {
   //Card info border render
   countryBorders.forEach((border) => {
     const borderNameBtn = document.createElement("button");
+    borderNameBtn.classList.add("border_btn");
     borderNameBtn.innerText = border;
     cardBordersContainer.append(borderNameBtn);
   })
