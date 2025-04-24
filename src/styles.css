@@ -27,6 +27,7 @@
   body {
     font-family: "Nanito Sans", sans-serif;
     line-height: 1.5;
+    background-color: var(--very-dark-blue);
   }
 
 
@@ -286,7 +287,6 @@
 
   @media (width > 42rem) {
     .main_container {
-      height: 100vh;
       .top_section_container {
         padding-inline: 3rem;
       }
@@ -313,7 +313,6 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        border: 1px solid red;
 
         .card_info_container {
           margin-inline-start: 6rem;
