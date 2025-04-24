@@ -195,6 +195,9 @@
     }
 
     .single_country_container {
+      min-width: 320px;
+      max-width: 1400px;
+      margin: 0 auto;
       padding: 1rem;
       .back_btn {
         display: flex;
@@ -215,6 +218,14 @@
         }
       }
 
+      .single_country_card {
+        margin: 0 auto;
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+
       .card_info_container {
 
         h2 {
@@ -232,6 +243,39 @@
             margin-block-end: 2rem;
           }
         }
+
+        .borders_container {
+          display: flex;
+          flex-direction: column;
+
+          h2 {
+            display: inline;
+            font-size: 1rem;
+            font-weight: 600;
+          }
+
+          div {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: 0 auto;
+            .border_btn {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 100%;
+              max-width: 100px;
+              height: 30px;
+              margin-inline-start: .5rem;
+              padding-block: .5rem;
+              padding-inline: 1rem;
+              -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+              -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+              box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+            }
+          }
+        }
       }
     }
   }
@@ -241,6 +285,12 @@
 @layer media {
 
   @media (width > 42rem) {
+    .main_container {
+      height: 100vh;
+      .top_section_container {
+        padding-inline: 3rem;
+      }
+    }
     .search_filter_container {
       display: flex;
       align-items: center;
@@ -248,14 +298,77 @@
       padding-inline: 3rem;
       .search_container {
         margin: 0;
+        margin-inline-end: 1rem;
       }
 
       .filter_container {
         margin: 0;
       }
     }
+
+   .single_country_container {
+
+      .single_country_card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        border: 1px solid red;
+
+        .card_info_container {
+          margin-inline-start: 6rem;
+          width: 50%;
+
+          h2 {
+            margin: 0;
+            margin-block-end: 1rem;
+          }
+
+          .card_info {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 550px;
+          }
+        }
+
+        .borders_container {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          h2 {
+            margin: 0;
+          }
+
+          div {
+            justify-content: start;
+          }
+        }
+      }
+    }
   }
 
+  @media (width > 58rem) {
+    
+    .single_country_card {
+      img {
+        width: 100%;
+        max-width: 600px;
+        height: 330px;
+        object-fit: fill;
+      }
+
+    .borders_container {
+        h2 {
+          width: 30%;
+          margin: 0;
+        }
+      }
+    }
+  }
 }
 
 
