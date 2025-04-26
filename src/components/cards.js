@@ -64,6 +64,7 @@ export function renderCardInfo(data) {
   const cleanContainer = document.getElementById("cards-container");
   cleanContainer.innerHTML = "";
   const container = document.getElementById("single-country-container");
+  const searchFilterContainer = document.getElementById("search-filter-container"); 
 
   //Card structure
   const card = document.createElement("div");
@@ -168,7 +169,8 @@ export function renderCardInfo(data) {
   borderContainerTitle.innerText = "Border Countries: ";
   cardInfoBorders.append(borderContainerTitle, cardBordersContainer);
   
-  //Card setup
+  //Layout setup
+  searchFilterContainer.classList.add("hidden")
   cardInfo.append(cardTitle,cardInfoGeneral, cardInfoBorders);
   card.append(cardImg,cardInfo);
 
