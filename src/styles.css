@@ -84,6 +84,7 @@
   p {
     color: var();
   }
+
 }
 
 @layer layout {
@@ -417,5 +418,11 @@
     .country_card_container {
         background-color: var(--dark-blue);
     }
+  }
+}
+
+@layer utils {
+  .hidden {
+    display: none;
   }
 }
