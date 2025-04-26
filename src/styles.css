@@ -27,7 +27,6 @@
   body {
     font-family: "Nanito Sans", sans-serif;
     line-height: 1.5;
-    background-color: var(--very-dark-blue);
   }
 
 
@@ -100,6 +99,7 @@
       button {
         display: flex;
         align-items: center;
+        font-size: .89rem;
         ion-icon {
           margin-inline-end: .5rem;
         }
@@ -372,7 +372,7 @@
 
 
 @layer dark-mode {
-  @media (prefers-color-scheme: dark) {
+  .dark_mode.main_container {
     h1,h2 {
       --heading-foreground-color: var(--white-base); 
     }
@@ -381,7 +381,7 @@
       font-weight: 600;
       --text-foreground-color: var(--white-base); 
     }
-    
+
     input,input::placeholder, select, option {
       color: var(--white-base);
       background-color: var(--dark-blue);
@@ -400,25 +400,22 @@
         color: var(--white-base);
       }
     }
+    background-color: var(--very-dark-blue);
+    .top_section_container {
+      background-color: var(--dark-blue);
+    }
 
-    .main_container {
-      background-color: var(--very-dark-blue);
-      .top_section_container {
+    .search_filter_container {
+      .search_container {
         background-color: var(--dark-blue);
-      }
-
-      .search_filter_container {
-        .search_container {
-          background-color: var(--dark-blue);
-          ion-icon {
-            color: var(--white-base);
-          }
+        ion-icon {
+          color: var(--white-base);
         }
       }
+    }
 
-      .country_card_container {
+    .country_card_container {
         background-color: var(--dark-blue);
-      }
     }
   }
 }
