@@ -1,13 +1,14 @@
-import { fetchAllCards, fetchCardByName, fetchDataByCode, fetchDataByRegion } from "./src/api.js";
-import { renderCards, renderCardInfo } from "./src/components/cards.js";
+import { fetchAllCountries } from "./src/api.js";
+import { renderCards } from "./src/components/cards.js";
 import { toggleDarkMode } from "./src/utils/darkMode.js";
+import { handleRegionSelect } from "./src/utils/selectByRegion.js";
 
 async function main() {
   try {
     toggleDarkMode("#dark-mode-toggle", "#main-container")
-    const data = await fetchAllCards();
-    const dataByRegion = await fetchDataByRegion("america");
-    renderCards(dataByRegion);
+    const data = await fetchAllCountries();
+    renderCards(data);
+    handleRegionSelect("regions-select");
   } catch(error) {
     console.error("Mistakes were made in main:", error);
   }
