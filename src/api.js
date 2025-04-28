@@ -1,6 +1,6 @@
 import { URL, FALLBACKURL} from "../config.js"
 
-export async function fetchAllCards(){
+export async function fetchAllCountries(){
   try {
     const res = await fetch(URL + "all"); 
 
@@ -20,7 +20,7 @@ export async function fetchAllCards(){
   } 
 };
 
-export async function fetchCardByName(str) {
+export async function fetchCountry(str) {
   try {
     str = str.toLowerCase();
     const res = await fetch(URL + "name/" + str);
@@ -46,7 +46,7 @@ export async function fetchCardByName(str) {
   }
 }
 
-export async function fetchDataByCode(str) {
+export async function fetchCountryByCode(str) {
   try {
     const res = await fetch(URL + "alpha/" + str);
 
@@ -75,7 +75,7 @@ export async function fetchDataByCode(str) {
   }
 }
 
-export async function fetchDataByRegion(str) {
+export async function fetchCountriesByRegion(str) {
   try {
     const res = await fetch(URL + "region/" + str);
 
@@ -93,7 +93,7 @@ export async function fetchDataByRegion(str) {
 
       const res = await fetch(FALLBACKURL);
       const data = await res.json();
-      return data[0];
+      return data;
       
 
     } catch(e) {
