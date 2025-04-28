@@ -40,7 +40,7 @@ export function renderCards(data) {
   });
 }
 
-export function renderCardInfo(data) {
+export function renderCard(data) {
 
   const {
     name:{common, nativeName},
