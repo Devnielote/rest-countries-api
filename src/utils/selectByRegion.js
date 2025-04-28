@@ -11,12 +11,11 @@ export async function handleRegionSelect(selectId){
 
       let data;
 
-      if(!selectedRegion){
+      if(!selectedRegion || selectedRegion == ""){
         data = await fetchAllCountries();
 
       } else {
         data = await fetchCountriesByRegion(selectedRegion);
-
       }
 
       renderCards(data);
