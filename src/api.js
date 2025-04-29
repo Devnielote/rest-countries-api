@@ -22,7 +22,7 @@ export async function fetchAllCountries(){
 
 export async function fetchCountry(str) {
   try {
-    str = str.toLowerCase();
+    str = str.toLowerCase().trim();
     const res = await fetch(URL + "name/" + str);
 
     if (!res.ok) {
@@ -33,15 +33,16 @@ export async function fetchCountry(str) {
     return data[0];
 
   } catch(error) {
-    console.error(error)
-    const res = await fetch(FALLBACKURL);
-    const data = await res.json();
+    try {
 
-    const country = data.find((country) => country.name.toLowerCase() === str);
-    if (country) {
+      const res = await fetch(FALLBACKURL);
+      const data = await res.json();
+      const country = data.find((country) => country.name.toLowerCase() === str);
       return country
-    } else {
-      console.error("País no encontrado");
+
+    } catch(e) {
+      //Not found
+      return null;
     }
   }
 }
@@ -100,4 +101,4 @@ export async function fetchCountriesByRegion(str) {
       console.error("Fallback request failed", e)
     }
   }
-} 
+
