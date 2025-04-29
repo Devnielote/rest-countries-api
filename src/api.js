@@ -101,4 +101,4 @@ export async function fetchCountriesByRegion(str) {
       console.error("Fallback request failed", e)
     }
   }
-
+} 
