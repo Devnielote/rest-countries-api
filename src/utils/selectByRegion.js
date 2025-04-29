@@ -1,5 +1,5 @@
 import { fetchAllCountries, fetchCountriesByRegion } from "../api.js";
-import { renderCards } from "../components/cards.js";
+import { renderCountries } from "../components/cards.js";
 
 export async function handleRegionSelect(selectId){
   const selectRegion = document.getElementById(selectId);
@@ -18,7 +18,7 @@ export async function handleRegionSelect(selectId){
         data = await fetchCountriesByRegion(selectedRegion);
       }
 
-      renderCards(data);
+      renderCountries(data);
 
     } catch(e){
       console.error("Error fetching data by region: ", e);
