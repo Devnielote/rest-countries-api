@@ -1,5 +1,3 @@
-import { goBack } from "../utils/handleGoBack.js";
-
 export function createBackButton(container){
   try {
 
