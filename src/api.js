@@ -24,28 +24,38 @@ export async function fetchCountry(str) {
   try {
     str = str.toLowerCase().trim();
     const res = await fetch(URL + "name/" + str);
-
     if (!res.ok) {
-      throw new Error("Error con la solicitud de búsqueda")
+      throw new Error(`Status ${res.status} fetching country: ${str}.`);
     }
 
     const data = await res.json();
     return data[0];
 
   } catch(error) {
-    try {
+    console.error(error + " Requesting backup data");
 
+    try {
       const res = await fetch(FALLBACKURL);
+
+      if (!res.ok) {
+        throw new Error(`Error ${res.status} fetching country: ${str}`);
+      }
+
       const data = await res.json();
-      const country = data.find((country) => country.name.toLowerCase() === str);
+      const country = await data.find((country) => country.name.toLowerCase() === str);
+
+      if (!country) {
+        throw new Error("Status 404. Country not found in backup data");
+      }
+
       return country
 
     } catch(e) {
-      //Not found
+      console.error(e);
       return null;
     }
   }
-}
+};
 
 export async function fetchCountryByCode(str) {
   try {
