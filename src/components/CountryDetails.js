@@ -1,26 +1,12 @@
-import { createCard } from "./createCard.js";
-
-export function renderCountries(data) {
-  const container = document.getElementById("cards-container");
-  container.innerHTML = "";
-
-  try {
-    if (Array.isArray(data)){
-      data.forEach(country => {
-        const card = createCard(country)
-        container.append(card);
-      });
-      
-    } else {
-      const card = createCard(data);
-      container.append(card);
-    }
-  } catch(e) {
-    console.error("Error rendering country cards", e)
-  }
-}
+import { createBackButton } from "./BackButton.js";
 
 export function renderCountryDetails(data) {
+
+  const cleanContainer = document.getElementById("cards-container");
+  cleanContainer.innerHTML = "";
+  const container = document.getElementById("single-country-container");
+  container.innetHTML = "";
+  createBackButton(container);
 
   const {
     name:{common, nativeName},
@@ -41,9 +27,6 @@ export function renderCountryDetails(data) {
   const formattedPopulation = population.toLocaleString(); 
 
 
-  const cleanContainer = document.getElementById("cards-container");
-  cleanContainer.innerHTML = "";
-  const container = document.getElementById("single-country-container");
   const searchFilterContainer = document.getElementById("search-filter-container"); 
 
   //Card structure
@@ -113,7 +96,14 @@ export function renderCountryDetails(data) {
   cardSubregion.append(cardSubregionSpan);
 
   cardCapital.innerText = "Capital: ";
-  cardCapitalSpan.innerText = capital;
+
+
+  if (capital == undefined){
+    cardCapitalSpan.innerText = "No capital"
+  } else {
+    cardCapitalSpan.innerText = capital;
+  }
+
   cardCapital.append(cardCapitalSpan);
 
   cardInfoFirstColumn.append(cardName, cardPopulation, cardRegion, cardSubregion, cardCapital);
@@ -139,12 +129,20 @@ export function renderCountryDetails(data) {
   
 
   //Card info border render
-  countryBorders.forEach((border) => {
+
+  if(!countryBorders) {
     const borderNameBtn = document.createElement("button");
     borderNameBtn.classList.add("border_btn");
-    borderNameBtn.innerText = border;
+    borderNameBtn.innerText = "No borders";
     cardBordersContainer.append(borderNameBtn);
-  })
+  } else {
+      countryBorders.forEach((border) => {
+      const borderNameBtn = document.createElement("button");
+      borderNameBtn.classList.add("border_btn");
+      borderNameBtn.innerText = border;
+      cardBordersContainer.append(borderNameBtn);
+    })
+  };
 
   borderContainerTitle.innerText = "Border Countries: ";
   cardInfoBorders.append(borderContainerTitle, cardBordersContainer);
@@ -155,4 +153,4 @@ export function renderCountryDetails(data) {
   card.append(cardImg,cardInfo);
 
   container.append(card);
-}
+};
