@@ -101,6 +101,7 @@
         display: flex;
         align-items: center;
         font-size: .89rem;
+        cursor: pointer;
         ion-icon {
           margin-inline-end: .5rem;
         }
@@ -147,6 +148,7 @@
           -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
           -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
           border-radius: 5px;
+          cursor: pointer;
         }
       }
     }
@@ -169,6 +171,7 @@
         -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
         box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
         border-radius: .5rem;
+        cursor: pointer;
 
         img {
           width: 100%;
@@ -214,6 +217,7 @@
         -webkit-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
         -moz-box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
         box-shadow: 0px 1px 5px 1px rgba(0,0,0,0.11);
+        cursor: pointer;
         ion-icon {
           font-size: 20px;
           color: black;
