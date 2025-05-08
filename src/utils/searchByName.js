@@ -1,25 +1,24 @@
-import { fetchAllCountries, fetchCountry } from "../api.js";
-import { renderCountries } from "../components/cards.js";
+import { navigateTo } from "../router/router.js";
 
-export async function handleCountrySearch(inputId){
+export function handleCountrySearch(inputId){
   const inputName = document.getElementById(inputId);
 
-  inputName.addEventListener("input", async (event) => {
-    const inputedName = event.target.value;
+  inputName.addEventListener("keydown", async (event) => {
+    if(event.key === "Enter"){
+      const inputedName = event.target.value.toLowerCase()
 
-    try {
-      let data;
+      try {
+        if (!inputedName || inputedName == ""){
+          navigateTo("/");
 
-      if (!inputedName || inputedName == ""){
-        data = await fetchAllCountries();
+        } else {
+          history.pushState(null,null,"/")
+          navigateTo(`search/${inputedName}`);
+        }
 
-      } else {
-        data = await fetchCountry(inputedName);
+      } catch(e){
+        console.error("Error fetching countries by name", e)
       }
-
-      renderCountries(data);
-    } catch(e){
-        console.error("Error fetching data by name", e)
     }
   })
 }
