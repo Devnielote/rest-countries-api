@@ -26,9 +26,9 @@ Users should be able to:
 - Toggle the color scheme between light and dark mode *(optional)*
 
 ### Screenshot
-[Destop view](./src/assets/images/countries_desktop2.png)
-[Mobile view](./src/assets/images/countries_mobile1.png)
-[Country details view](./src/assets/images/countries_details1.png)
+[](./src/assets/images/countries_desktop2.png)
+[](./src/assets/images/countries_mobile1.png)
+[](./src/assets/images/countries_details1.png)
 
 ### Links
 
