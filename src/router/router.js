@@ -14,7 +14,7 @@ export function navigateTo(url) {
 export function handleRoute() {
   const path = window.location.pathname;
 
-  if (path === "/" || path === "/index.html") {
+  if (path === "/" || path === "/rest-countries-api") {
     renderHomePage();
 
   } else if (path.startsWith("/country/")) {
