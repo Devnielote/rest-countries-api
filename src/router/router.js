@@ -29,9 +29,7 @@ export function handleRoute() {
     const searchQuery = decodeURIComponent(path.split("/search/")[1]);
     renderCountrySearch(searchQuery);
 
-  } else {
-    renderNotFoundPage();
-  }
+  } 
 
 }
 
