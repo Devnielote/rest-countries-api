@@ -16,18 +16,23 @@ export function handleRoute() {
 
   if (path === "/" || path === "/index.html") {
     renderHomePage();
+
   } else if (path.startsWith("/country/")) {
     const countryName = path.split("/country/")[1];
     renderCountryPage(countryName); 
+    
   } else if (path.startsWith("/region/")) {
     const regionName = decodeURIComponent(path.split("/region/")[1]);
     renderRegionPage(regionName);
+
   } else if (path.startsWith("/search/")) {
     const searchQuery = decodeURIComponent(path.split("/search/")[1]);
     renderCountrySearch(searchQuery);
+
   } else {
     renderNotFoundPage();
   }
+
 }
 
 window.addEventListener("popstate", handleRoute);

@@ -1,3 +1,4 @@
+import { navigateTo } from "../router/router.js";
 import { createBackButton } from "./BackButton.js";
 
 export function renderCountryDetails(data) {
@@ -5,7 +6,7 @@ export function renderCountryDetails(data) {
   const cleanContainer = document.getElementById("cards-container");
   cleanContainer.innerHTML = "";
   const container = document.getElementById("single-country-container");
-  container.innetHTML = "";
+  container.innerHTML =  "";
   createBackButton(container);
 
   const {
@@ -24,7 +25,7 @@ export function renderCountryDetails(data) {
   const nativeCountryName = Object.values(nativeName)[0].common;
   const countryCurrencyName = Object.values(currencies)[0].name;
   const countryLanguage = Object.values(languages)[0];
-  const formattedPopulation = population.toLocaleString(); 
+  const formattedPopulation = population.toLocaleString();
 
 
   const searchFilterContainer = document.getElementById("search-filter-container"); 
@@ -140,6 +141,9 @@ export function renderCountryDetails(data) {
       const borderNameBtn = document.createElement("button");
       borderNameBtn.classList.add("border_btn");
       borderNameBtn.innerText = border;
+      borderNameBtn.addEventListener("click", () => {
+        navigateTo(`/country/${decodeURIComponent(border)}`);
+      })
       cardBordersContainer.append(borderNameBtn);
     })
   };

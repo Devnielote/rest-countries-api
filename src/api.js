@@ -62,7 +62,7 @@ export async function fetchCountryByCode(str) {
     const res = await fetch(URL + "alpha/" + str);
 
     if (!res.ok) {
-      throw new Error("404 Not Found")
+      throw new Error(res.status);
     }
 
     const data = await res.json();
@@ -70,13 +70,18 @@ export async function fetchCountryByCode(str) {
 
   } catch(e) {
     console.error("Primay request failed", e);
+    console.log("Fetching backuo data");
+
     try {
       const fallbackResponse = await fetch(FALLBACKURL);
+
       if(!fallbackResponse.ok) {
-        throw new Error("Fallback request also failed");
+        
+        throw new Error(fallbackResponse.status);
       }
 
       const fallbackData = fallbackResponse.json()
+
       return fallbackData;
 
     } catch(fallbackError) {
