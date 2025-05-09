@@ -70,7 +70,7 @@ export async function fetchCountryByCode(str) {
 
   } catch(e) {
     console.error("Primay request failed", e);
-    console.log("Fetching backuo data");
+    console.log("Fetching backup data");
 
     try {
       const fallbackResponse = await fetch(FALLBACKURL);
