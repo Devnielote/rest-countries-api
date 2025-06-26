@@ -2,13 +2,14 @@ import { URL, FALLBACKURL} from "../config.js"
 
 export async function fetchAllCountries(){
   try {
-    const res = await fetch(URL + "all"); 
+    const res = await fetch(URL + "all?fields=flags,name,population,region,capital"); 
 
     if (!res.ok ) {
       throw new Error("Error al conectarse con la API");
     }
 
     const data = await res.json();
+    console.log(data);
     return data;
 
   } catch(error) {
