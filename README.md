@@ -1,50 +1,44 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+# REST Countries API
+This is a Frontend mentor challenge where it consumes the REST Countires API to display country data and allows users to search by country name or filter by region.
 
-This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+---
 
-## Table of contents
+## Screenshot
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-- [Author](#author)
-
-## Overview
-
-### The challenge
-
-Users should be able to:
-
-- See all countries from the API on the homepage
-- Search for a country using an `input` field
-- Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode *(optional)*
-
-### Screenshot
 ![](./src/assets/images/countries_desktop2.png)
-![](./src/assets/images/countries_mobile1.png)
-![](./src/assets/images/countries_details1.png)
 
-### Links
+---
+
+## Live Demo
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-## My process
+---
 
-### Built with
+## Project Purpose
 
-- Semantic HTML5 markup
+- Practice consuming external APIs using JavaScript
+- Organized the project into modules
+- Implement country search by name and region filtering
+- Applied the single responsability principle
+- Set up simple routing to switch between views
+- Used local data (`data.json`) as a fallback in case of API failure
+
+---
+
+## Built with
+
+- HTML5 & CSS3
+- Vanilla JavaScript
+- REST Countries API - https://restcountries.com/
 - CSS custom properties
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
 
-### Author
+---
+
+## Author
 
 - Frontend Mentor - [@Devnielote](https://www.frontendmentor.io/profile/Devnielote)
